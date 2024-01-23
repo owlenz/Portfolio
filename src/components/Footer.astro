@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components";
+const today = new Date();
+---
+
+<footer>
+  &copy; {today.getFullYear()} Your name here. All rights reserved.
+  <div class="social-links">
+    <a href="https://linkedin.com/in/saifowlen" target="_blank">
+      <Icon name="mdi:linkedin" class={"w-12 h-12"} />
+    </a>
+    <a href="https://twitter.com/SeifNeedsHelp" target="_blank">
+      <span class="sr-only text-white">Follow Me on Twitter</span>
+      <Icon name={"mdi:twitter"} class={"w-12 h-12"} />
+    </a>
+    <a href="https://github.com/SaifOwleN" target="_blank">
+      <span class="sr-only">Check My GitHub</span>
+      <Icon name={"mdi:github"} class={"w-12 h-12"} />
+    </a>
+  </div>
+</footer>
+<style>
+  footer {
+    padding: 2em 1em 6em 1em;
+    color: rgb(var(--gray));
+    text-align: center;
+  }
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+  }
+  .social-links a {
+    text-decoration: none;
+    color: rgb(var(--gray));
+  }
+  .social-links a:hover {
+    color: rgb(var(--gray-dark));
+  }
+</style>
