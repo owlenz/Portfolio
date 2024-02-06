@@ -8,5 +8,9 @@ import icon from "astro-icon";
 export default defineConfig({
   site: "https://example.com",
   integrations: [mdx(), sitemap(), tailwind(), icon()],
+  vite: {
+    server: {
+      watch: { usePolling: true },
+    },
+  },
 });
-

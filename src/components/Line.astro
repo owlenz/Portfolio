@@ -1,0 +1,12 @@
+---
+interface Props {
+  color: string;
+  width: string;
+}
+
+const { color, width } = Astro.props;
+---
+
+<div class="flex justify-center w-full h-0.5">
+  <div class={"bg-" + color + " " + width}></div>
+</div>
