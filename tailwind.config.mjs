@@ -2,7 +2,16 @@
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        bgGlow: "bgGlow 2s linear infinte",
+      },
+      keyframes: {
+        bgGlow: {
+          to: { "background-position": "200% center" },
+        },
+      },
+    },
     fontFamily: {
       merriweather: ["Merriweather", "serif"],
       ibm: ["IBM Plex Sans", "sans-serif"],
@@ -10,6 +19,8 @@ export default {
       montagu: ["Montagu Slab", "serif"],
       poppins: ["Poppins", "sans-serif"],
       inter: ["Inter", "sans-serif"],
+      expose: ["Expose", "sans-serif"],
+      persona: ["Persona", "sans-serif"],
     },
   },
   plugins: [],

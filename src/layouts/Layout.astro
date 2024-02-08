@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 
@@ -11,12 +12,11 @@ const { title, description } = Astro.props;
 
 <html lang="en">
   <head>
+    <ViewTransitions />
     <BaseHead title={title} description={description} />
   </head>
-  <body class="text-white bg-purple-900">
-    <div class="m-4 rounded-xl bg-black h-full">
-      <Header />
-      <slot />
-    </div>
+  <body class="text-white m-4 rounded-xl bg-gray-950 bg-repeat-space">
+    <Header />
+    <slot />
   </body>
 </html>

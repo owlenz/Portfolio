@@ -25,6 +25,17 @@ root {
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: "Expose";
+  src: url("/fonts/expose-regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Persona";
+  src: url("/fonts/Persona5MenuFontPrototype-Regular.ttf") format("truetype");
+}
+
 @font-face {
   font-family: "Atkinson";
   src: url("/fonts/atkinson-bold.woff") format("woff");
