@@ -7,14 +7,14 @@ import TestC from "../components/TestC";
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <main class="w-full">
+  <main class="w-full flex flex-col gap-10 items-center">
     <div
       class="flex sm:flex-row flex-col items-center justify-evenly h-full w-full text-center"
       transition:animate="slide"
     >
       <div>
         <h1
-          class="font-poppins font-extralight text-7xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500"
+          class="font-poppins font-extralight text-7xl bg-clip-text text-transparent bg-gradient-to-r from-[#c12129] to-violet-500"
         >
           Saif Al-Din Samy
         </h1>
@@ -40,6 +40,10 @@ import TestC from "../components/TestC";
           >
         </div>
       </div>
+    </div>
+    <div class="flex flex-col mt-20">
+      <h4>My Tech Stack</h4>
+      <div></div>
     </div>
   </main>
 </Layout>
