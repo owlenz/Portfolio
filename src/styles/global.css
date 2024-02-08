@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Merriweather:ital,wght@1,300&Inter:wght@200;300;400;500;600;700;800&family=Montagu+Slab:opsz,wght@16..144,600&family=Poppins:wght@200;300;400;500;600;700;800&family=Ubuntu&display=swap");
+
 root {
   --accent: #2337ff;
   --accent-dark: #000d8a;
@@ -20,7 +21,7 @@ root {
 
 @font-face {
   font-family: "Atkinson";
-  src: url("/fonts/atkinson-regular.woff") format("woff");
+  src: url("/Portfolio/fonts/atkinson-regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -28,17 +29,18 @@ root {
 
 @font-face {
   font-family: "Expose";
-  src: url("/fonts/expose-regular.otf") format("opentype");
+  src: url("/Portfolio/fonts/expose-regular.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Persona";
-  src: url("/fonts/Persona5MenuFontPrototype-Regular.ttf") format("truetype");
+  src: url("/Portfolio/fonts/Persona5MenuFontPrototype-Regular.ttf")
+    format("truetype");
 }
 
 @font-face {
   font-family: "Atkinson";
-  src: url("/fonts/atkinson-bold.woff") format("woff");
+  src: url("/Portfolio/fonts/atkinson-bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -154,12 +156,8 @@ hr {
   height: 1px;
   width: 1px;
   overflow: hidden;
-  /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
   clip: rect(1px 1px 1px 1px);
-  /* maybe deprecated but we need to support legacy browsers */
   clip: rect(1px, 1px, 1px, 1px);
-  /* modern browsers, clip-path works inwards from each corner */
   clip-path: inset(50%);
-  /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
   white-space: nowrap;
 }
