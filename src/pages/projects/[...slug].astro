@@ -1,0 +1,36 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("project");
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: project,
+  }));
+}
+type Props = CollectionEntry<"project">;
+const { title, description, pubDate, images } = Astro.props.data;
+const project = Astro.props;
+const { Content } = await project.render();
+console.log("xdd");
+---
+
+<Layout title={title} description={description}>
+  <div class="flex flex-col items-center">
+    {
+      images.map((image) => {
+        <Image
+          src={"/projects/WTG/WTG.png"}
+          alt={image}
+          width={"1000"}
+          height={"500"}
+          loading={"lazy"}
+          decoding={"async"}
+        />;
+      })
+    }
+  </div>
+  <Content />
+</Layout>

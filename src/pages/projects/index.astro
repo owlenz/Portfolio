@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+---
+
+<Layout title="Saif's Projects" description="">
+  <div class="flex flex-col items-center py-10 gap-8">
+    <h1 class="text-5xl font-poppins">My Projects</h1>
+    <div class="flex justify-center gap-4 flex-wrap">
+      <ProjectCard
+        width="w-[390px]"
+        height="h-[190px]"
+        image="/projects/WTG/WTG.png"
+        title="What To Game"
+        label="Frontend"
+        link="/projects/what-to-game"
+        date="1/2024"
+      />
+      <ProjectCard
+        width="w-[390px]"
+        height="h-[190px]"
+        image="/projects/DBMS/DBMS.png"
+        title="Database Managment Website"
+        label="Fullstack"
+        link="/projects/dbms"
+        date="2/2024"
+      />
+    </div>
+  </div>
+</Layout>
