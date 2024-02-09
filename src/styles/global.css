@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Merriweather:ital,wght@1,300&Inter:wght@200;300;400;500;600;700;800&family=Montagu+Slab:opsz,wght@16..144,600&family=Poppins:wght@200;300;400;500;600;700;800&family=Ubuntu&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 root {
   --accent: #2337ff;
@@ -45,6 +48,13 @@ root {
   font-style: normal;
   font-display: swap;
 }
+
+@layer utilities {
+  .glow {
+    filter: drop-shadow(0 0 3px #9b2657);
+  }
+}
+
 body {
   font-family: "Atkinson", sans-serif;
   margin: 0;

@@ -10,7 +10,13 @@ import react from "@astrojs/react";
 export default defineConfig({
   site: "https://SaifOwleN.github.io",
   base: "/Portfolio",
-  integrations: [mdx(), sitemap(), tailwind(), icon(), react()],
+  integrations: [
+    mdx(),
+    sitemap(),
+    tailwind({ applyBaseStyles: false }),
+    icon(),
+    react(),
+  ],
   vite: {
     server: {
       watch: {
