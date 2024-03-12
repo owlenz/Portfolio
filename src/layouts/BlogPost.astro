@@ -3,57 +3,85 @@ import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import Layout from "./Layout.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead title={title} description={description} />
-    <style>
-      .prose {
-        width: 720px;
-        max-width: calc(100% - 2em);
-        padding: 1em;
-      }
-      .title {
-        margin-bottom: 1em;
-        padding: 1em 0;
-        line-height: 1;
-      }
-      .date {
-        margin-bottom: 0.5em;
-        color: gray;
-      }
-      .last-updated-on {
-        font-style: italic;
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <div class="text-white ml-16 flex flex-col 2xl:max-w-[850px] items-center">
-      <div class="hero-image">
-        {heroImage && <img width={500} src={heroImage} alt="" />}
-      </div>
-      <div class="prose">
-        <div class="title">
-          <div class="date text-center">
-            <FormattedDate date={pubDate} />
-            {
-              updatedDate && (
-                <div class="last-updated-on">
-                  Last updated on <FormattedDate date={updatedDate} />
-                </div>
-              )
-            }
-          </div>
-          <h1>{title}</h1>
-          <hr />
-        </div>
-        <slot />
-      </div>
+<style is:global>
+  .prose {
+    width: 750px;
+    max-width: calc(100% - 2em);
+  }
+  a {
+    text-decoration: underline;
+  }
+  h4 {
+    color: white;
+  }
+
+  p {
+    font-family:
+      IBM Plex Sans,
+      sans-serif;
+    margin: 17px 0;
+  }
+  pre {
+    margin: 10px 10px;
+    font-size: 16px;
+  }
+  .date {
+    margin-bottom: 0.5em;
+    color: gray;
+  }
+  .last-updated-on {
+    font-style: italic;
+  }
+  @media (max-width: 550px) {
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-weight: 600;
+    }
+    h1 {
+      font-size: 2em;
+    }
+    h2 {
+      font-size: 1.6em;
+    }
+    h3 {
+      font-size: 1.4em;
+    }
+    h4 {
+      font-size: 1.2em;
+    }
+  }
+</style>
+<Layout title={title} description={description}>
+  <div
+    class="text-white lg:ml-16 flex flex-col mt-10 max-w-[750px] items-center"
+  >
+    <div class="hero-image">
+      {heroImage && <img width={500} src={heroImage} alt="GNU Logo" />}
     </div>
-  </body>
-</html>
+    <div class="prose">
+      <div class="title">
+        <div class="date text-center">
+          <FormattedDate date={pubDate} />
+          {
+            updatedDate && (
+              <div class="last-updated-on">
+                Last updated on <FormattedDate date={updatedDate} />
+              </div>
+            )
+          }
+        </div>
+        <h1>{title}</h1>
+        <hr />
+      </div>
+      <slot />
+    </div>
+  </div>
+</Layout>
