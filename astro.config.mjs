@@ -8,20 +8,20 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://SaifOwleN.github.io",
-  base: "/Portfolio",
-  integrations: [
-    mdx(),
-    sitemap(),
-    tailwind({ applyBaseStyles: false }),
-    icon(),
-    react(),
-  ],
-  vite: {
-    server: {
-      watch: {
-        usePolling: true,
-      },
-    },
-  },
+	site: "https://saifowlen.github.io/",
+	base: "/Portfolio/",
+	integrations: [
+		mdx(),
+		sitemap(),
+		tailwind({ applyBaseStyles: false }),
+		icon(),
+		react(),
+	],
+	vite: {
+		server: {
+			watch: {
+				usePolling: true,
+			},
+		},
+	},
 });
