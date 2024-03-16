@@ -75,10 +75,10 @@ body {
   background-color: #0b0e17;
 }
 main {
-  width: 720px;
+  width: 820px;
   max-width: calc(100% - 2em);
   margin: auto;
-  padding: 3em 1em;
+  padding: 2em 1em;
 }
 h1,
 h2,
@@ -113,9 +113,6 @@ a {
 }
 a:hover {
   color: var(--accent);
-}
-p {
-  margin-bottom: 1em;
 }
 .prose p {
   margin-bottom: 2em;
@@ -162,7 +159,7 @@ hr {
     font-size: 18px;
   }
   main {
-    padding: 1em;
+    padding: 10px 0;
   }
 }
 

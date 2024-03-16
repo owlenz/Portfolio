@@ -19,13 +19,15 @@ const { image, link, date, label, width, height, title } = Astro.props;
     class="px-4 mt-4 absolute flex justify-end flex-col bottom-0 left-0 h-full w-full hover:backdrop-brightness-[.3] hover:opacity-100 opacity-0 transition duration-300"
   >
     <h1 class="text-2xl font-bold font-inter text-wrap">{title}</h1>
-    <div class="flex gap-2 items-center text-sm">
+    <div class="font-thin text-gray-400 mx-1 text-base flex items-center gap-4">
       <label
         class="border border-emerald-600 text-emerald-600 p-0.5 px-5 rounded-full"
         >{date}</label
       >
-      <Icon name={"mdi:dot"} />
-      <label class="text-gray-400">{label}</label>
+      <Icon class="text-white" name={"mdi:dot"} />
+      <span class="border-[#C22129] border rounded-sm px-3 py-[1px]">
+        {label}</span
+      >
     </div>
     <p class="text-xs text-gray-200 font-thin"><slot /></p>
   </div>

@@ -9,7 +9,7 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://saifowlen.github.io/",
-	base: "/Portfolio/",
+	base: "/Portfolio",
 	integrations: [
 		mdx(),
 		sitemap(),

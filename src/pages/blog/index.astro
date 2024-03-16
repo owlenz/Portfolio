@@ -9,16 +9,31 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <Layout title="Blogs" description="">
-  <div class="m-10">
+  <main class="text-[#DADADB]">
+    <h1 class="mb-4 text-5xl font-ubuntu">Blog Posts</h1>
     <section>
       <ul>
         {
           posts.map((post) => (
-            <li>
+            <li class="flex">
+              {post.data.heroImage && (
+                <img class="w-24" src={post.data.heroImage} alt={post.slug} />
+              )}
+
               <a class="inline-block" href={`/Portfolio/blog/${post.slug}/`}>
-                <p class="font-extralight text-xl mb-0 ">{post.data.title}</p>
-                <p class="mx-2 text-base">
-                  <FormattedDate date={post.data.pubDate} />
+                <p class="text-xl mb-1 font-ubuntu ">{post.data.title}</p>
+                <p class="font-thin text-gray-400 mx-1 text-sm flex items-center gap-2">
+                  <span>
+                    <FormattedDate date={post.data.pubDate} />
+                  </span>
+                  <span class="text-white">•</span>
+                  <span class="flex gap-2">
+                    {post.data.tags.map((aloo) => (
+                      <span class="border-[#C22129] border rounded-sm px-3 py-[1px] ">
+                        {aloo}
+                      </span>
+                    ))}
+                  </span>
                 </p>
               </a>
             </li>
@@ -26,5 +41,5 @@ const posts = (await getCollection("blog")).sort(
         }
       </ul>
     </section>
-  </div>
+  </main>
 </Layout>
