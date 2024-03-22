@@ -50,6 +50,16 @@ root {
   font-display: swap;
 }
 
+@font-face {
+  font-family: "KoreanKRSM";
+  src: url("/Portfolio/fonts/atkinson-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Optima";
+  src: url("/Portfolio/fonts/optima-nova-lt-black.otf") format("opentype");
+}
+
 @layer utilities {
   .glow {
     filter: drop-shadow(0 0 3px #9b2657);
