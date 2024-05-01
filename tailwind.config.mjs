@@ -23,6 +23,7 @@ export default {
 			persona: ["Persona", "sans-serif"],
 			optima: ["Optima", "sans-serif"],
 			krsm: ["KoreanKRSM", "sans-serif"],
+			wotfard: ["Wotfard", "sans-serif"],
 		},
 	},
 	plugins: [],

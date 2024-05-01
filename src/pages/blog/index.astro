@@ -15,9 +15,9 @@ const posts = (await getCollection("blog")).sort(
       <ul>
         {
           posts.map((post) => (
-            <li class="flex">
+            <li class="flex gap-2 h-fit">
               {post.data.heroImage && (
-                <img class="w-24" src={post.data.heroImage} alt={post.slug} />
+                <img class="h-20 " src={post.data.heroImage} alt={post.slug} />
               )}
 
               <a class="inline-block" href={`/Portfolio/blog/${post.slug}/`}>
