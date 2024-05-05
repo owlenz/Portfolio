@@ -7,6 +7,7 @@ const { href, class: className, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
 const isActive = href === pathname || href === pathname.replace(/\/$/, "");
+console.log(isActive);
 ---
 
 <div class="flex flex-col w-min font-space group relative">
