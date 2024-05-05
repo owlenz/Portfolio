@@ -13,41 +13,8 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/webp" href="Portfolio/TheVoices.webp" />
+<link rel="icon" type="image/webp" href="TheVoices.webp" />
 <meta name="generator" content={Astro.generator} />
-
-<!-- Font preloads -->
-<link
-  rel="preload"
-  href="Portfolio/fonts/atkinson-regular.woff"
-  as="font"
-  type="font/woff"
-  crossorigin
-/>
-<link
-  rel="preload"
-  href="Portfolio/fonts/atkinson-bold.woff"
-  as="font"
-  type="font/woff"
-  crossorigin
-/>
-
-<!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
-<link
-  rel="stylesheet"
-  href="node_modules/@glidejs/glide/dist/css/glide.core.min.css"
-/>
-<link
-  rel="stylesheet"
-  href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css"
-/>
-
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-/>
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
