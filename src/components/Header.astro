@@ -1,18 +1,14 @@
 ---
-/*         <a href="https://linkedin.com/in/saifowlen" target="_blank">
-          <Icon name="mdi:linkedin" />
-        </a>
-        <a href="https://twitter.com/SeifNeedsHelp" target="_blank">
-          <span class="sr-only text-white">Follow Me on Twitter</span>
-          <Icon name={"mdi:twitter"} />
-        </a> */
-
 import HeaderLink from "./HeaderLink.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<header>
-  <nav class="text-white text-base py-6 gap-2 flex items-center justify-around">
+<header
+  class="w-full flex flex-col gap-10 items-center text-pretty text-start selection:text-white px-5"
+>
+  <nav
+    class="text-white text-base py-6 gap-2 flex items-center flex-col gap-4 justify-between max-w-[1000px] w-full"
+  >
     <a
       href="/Portfolio"
       class="text-4xl mb-0 no-underline font-persona relative group flex items-center gap-2 select-none font-[400]"
@@ -23,13 +19,13 @@ import { Icon } from "astro-icon/components";
       </div></a
     >
     <div class="flex gap-x-10">
-      <div class="flex justify-between xl:gap-10 gap-3 items-center">
+      <div class="flex justify-between md:gap-10 gap-4 items-center">
         <HeaderLink href="/Portfolio/blog">Blogs</HeaderLink>
         <HeaderLink href="/Portfolio/projects">Projects</HeaderLink>
         <HeaderLink target="_blank" href="/Portfolio/resume.pdf">
           Resume
         </HeaderLink>
-        <div class="items-center gap-1 social-media md:flex hidden">
+        <div class="items-center gap-1 social-media hidden">
           <HeaderLink
             target="_blank"
             href={"https://github.com/SaifOwleN"}

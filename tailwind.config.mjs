@@ -2,6 +2,9 @@
 export default {
 	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	theme: {
+		// screens:{
+		// 	'xs': '400px'
+		// },
 		extend: {
 			animation: {
 				bgGlow: "bgGlow 2s linear infinte",
@@ -24,6 +27,7 @@ export default {
 			optima: ["Optima", "sans-serif"],
 			krsm: ["KoreanKRSM", "sans-serif"],
 			wotfard: ["Wotfard", "sans-serif"],
+			space: ["Space Mono", "sans-serif"]
 		},
 	},
 	plugins: [],

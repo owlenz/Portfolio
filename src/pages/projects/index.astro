@@ -4,15 +4,12 @@ import ProjectCard from "../../components/ProjectCard.astro";
 ---
 
 <Layout title="Saif's Projects" description="">
-  <div
-    class="flex flex-col items-center py-10 gap-8"
-    transition:animate="slide"
-  >
-    <h1 class="text-5xl font-poppins">My Projects</h1>
-    <div class="flex justify-center gap-4 flex-wrap">
+  <main class="font-space" transition:animate="slide">
+    <h1 class="mb-4 sm:text-3xl text-[#DADADB] text-2xl font-bold">
+      My Projects
+    </h1>
+    <div class="flex flex-col justify-center gap-4 flex-wrap">
       <ProjectCard
-        width="w-[390px]"
-        height="h-[190px]"
         image="/Portfolio/projects/WTG/WTG.png"
         title="What To Game"
         label="Frontend"
@@ -20,8 +17,6 @@ import ProjectCard from "../../components/ProjectCard.astro";
         date="1/2024"
       />
       <ProjectCard
-        width="w-[390px]"
-        height="h-[190px]"
         image="/Portfolio/projects/DBMS/DBMS.png"
         title="Database Managment Website"
         label="Fullstack"
@@ -29,5 +24,5 @@ import ProjectCard from "../../components/ProjectCard.astro";
         date="2/2024"
       />
     </div>
-  </div>
+  </main>
 </Layout>

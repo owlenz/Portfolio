@@ -1,145 +1,36 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import { Icon } from "astro-icon/components";
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
-import TestC from "../components/TestC";
-import Link from "../components/Link.astro";
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <main
-    class="w-full flex flex-col gap-10 items-center selection:bg-red-400 selection:text-white"
+    class="w-full flex flex-col gap-10 items-center text-pretty text-start selection:text-white"
   >
     <div
-      class="flex sm:flex-row flex-col items-center justify-evenly h-full w-full text-center"
+      class="flex max-w-[1200px] items-start h-full w-full"
       transition:animate="slide"
     >
-      <div>
-        <h1
-          class="font-poppins font-extralight text-7xl bg-clip-text text-transparent bg-gradient-to-l from-[#c12129] to-violet-500"
-        >
-          Saif Al-Din Samy
-        </h1>
-        <TestC />
-        <p class="text-lg font-krsm my-2 desc">
-          I am a full-stack developer with passion to all things software, and I
-          love Coding
-        </p>
-        <div class="flex justify-between">
-          <a
-            href="/Portfolio/projects"
-            class="hover:bg-gradient-to-r from-pink-500 to-violet-500 bg-white bg-clip-border w-fit p-[1px]"
-            ><span class="bg-black flex items-center gap-2 p-4 px-10"
-              >See My Projects <Icon name={"maki:arrow"} /></span
-            ></a
+      <div class="flex flex-col gap-4 font-space">
+        <div>
+          <h1 class="sm:text-2xl font-bold text-xl text-violet-700">
+            Saif Al-Din Samy
+          </h1>
+          <p class="sm:text-lg text-base my-2">
+            Hi! I am a full-stack developer with passion to all things software,
+            and I love Coding.
+          </p>
+        </div>
+
+        <div class="flex justify-between sm:text-lg text-base">
+          <a href="/Portfolio/projects" class="link leading-tight"
+            >See My Projects</a
           >
-          <a
-            href="#Contact"
-            class="hover:bg-gradient-to-r from-pink-500 to-violet-500 bg-white bg-clip-border w-fit p-[1px]"
-            ><span class="bg-black flex items-center gap-2 p-4 px-10"
-              >Contact Me!</span
-            ></a
+          <a href="/Portfolio/projects" class="link leading-tight">Contact Me</a
           >
         </div>
       </div>
-    </div>
-    <div
-      class="flex justify-center -mt-10 relative w-full items-center select-none"
-    >
-      <img src="/Portfolio/Arrow.svg" alt="SVG Arrow" class="w-20" />
-      <h3 class="absolute ml-10 font-expose">Skills</h3>
-    </div>
-    <div class="Skills flex flex-col sm:flex-row gap-5 justify-around w-full">
-      <div class="Front flex flex-col items-center max-w-[520px]">
-        <h3>Frontend Technologies</h3>
-        <div class="flex flex-wrap text-7xl gap-3 justify-between">
-          <Link
-            href="https://developer.mozilla.org/en-US/docs/Web/HTML"
-            class="devicon-html5-plain-wordmark colored"
-          />
-          <Link
-            href="https://developer.mozilla.org/en-US/docs/Web/CSS"
-            class="devicon-css3-plain-wordmark colored"
-          />
-          <Link
-            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-            class="devicon-javascript-plain colored"
-          />
-          <Link
-            href="https://react.dev/"
-            class="devicon-react-original colored"
-          />
-          <Link href="https://nextjs.org/" class="devicon-nextjs-plain" />
-          <Link
-            href="https://astro.build"
-            class="devicon-astro-plain colored"
-          />
-          <Link
-            href="https://tailwindcss.com"
-            class="devicon-tailwindcss-original colored"
-          />
-        </div>
-      </div>
-      <div class="Misc. flex flex-col items-center max-w-[550px]">
-        <h3>Misc.</h3>
-        <div class="flex flex-wrap items-end text-7xl justify-between gap-3">
-          <Link>
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg"
-              width="72px"
-            />
-          </Link>
-          <Link href="https://github.com/" class="devicon-github-original" />
-          <Link
-            href="https://git-scm.com/doc"
-            class="devicon-git-plain colored"
-          />
-          <Link class="devicon-cplusplus-plain colored" />
-        </div>
-      </div>
-      <div class="Back flex flex-col items-center max-w-[550px]">
-        <h3>Backend Technologies</h3>
-        <div class="flex flex-wrap items-end text-7xl justify-between gap-3">
-          <Link
-            href="http://expressjs.com/"
-            class="devicon-express-original-wordmark"
-          />
-          <Link href="https://bun.sh/" class="devicon-bun-plain colored" />
-          <Link
-            href="https://www.postgresql.org/"
-            class="devicon-postgresql-plain colored"
-          />
-
-          <Link
-            href="https://sequelize.org/"
-            class="devicon-sequelize-plain colored"
-          />
-          <Link
-            href="https://www.mongodb.com/"
-            class="devicon-mongodb-plain colored"
-          />
-          <Link href="https://www.typescriptlang.org/">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
-              width="72px"
-            />
-          </Link>
-        </div>
-      </div>
-    </div>
-
-    <div
-      id="Contact"
-      class="flex justify-center -mt-5 relative w-full items-center select-none"
-    >
-      <img src="/Portfolio/Arrow2.svg" alt="SVG Arrow2" class="w-20" />
-      <h3 class="absolute mt-7 font-expose">Contact Info</h3>
-    </div>
-    <div class="flex justify-around w-full">
-      <div><h3>Phone</h3> <p>+201100295293</p></div>
-      <div><h3>Email</h3> <p>SeifOwleN@proton.me</p></div>
-      <div><h3>LinkedIn</h3> <p>SeifOwleN@proton.me</p></div>
     </div>
   </main>
 </Layout>

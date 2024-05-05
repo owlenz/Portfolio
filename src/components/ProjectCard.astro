@@ -1,34 +1,33 @@
 ---
-import { Icon } from "astro-icon/components";
-
 interface Props {
   image: string;
-  width: string;
-  height: string;
   date: string;
   label: string;
   title: string;
   link: string;
 }
-const { image, link, date, label, width, height, title } = Astro.props;
+const { image, link, date, label, title } = Astro.props;
 ---
 
-<a href={link} target="_blank" class={`flex flex-col group relative`}>
-  <img src={image} class={width + " " + height} />
+<a
+  href={link}
+  target="_blank"
+  class={`flex gap-2 w-fit sm:h-[160px] h-[100px]`}
+>
+  <img src={image} class={"sm:w-[300px] w-[160px] aspect-auto"} />
   <div
-    class="px-4 mt-4 absolute flex justify-end flex-col bottom-0 left-0 h-full w-full hover:backdrop-brightness-[.3] hover:opacity-100 opacity-0 transition duration-300"
+    class="flex flex-col justify-evenly font-space h-full text-wrap overflow-ellipsis"
   >
-    <h1 class="text-2xl font-bold font-inter text-wrap">{title}</h1>
-    <div class="font-thin text-gray-400 mx-1 text-base flex items-center gap-4">
-      <label
-        class="border border-emerald-600 text-emerald-600 p-0.5 px-5 rounded-full"
+    <h1 class="sm:text-2xl text-xl font-bold text-wrap">{title}</h1>
+    <div
+      class="font-thin text-gray-400 mx-1 text-base flex items-center sm:gap-4 gap-2"
+    >
+      <label class="border border-purple-700 py-[1px] px-3 rounded-sm"
         >{date}</label
       >
-      <Icon class="text-white" name={"mdi:dot"} />
-      <span class="border-[#C22129] border rounded-sm px-3 py-[1px]">
+      <span class="border-[#C22129] border py-[1px] px-3 rounded-sm">
         {label}</span
       >
     </div>
-    <p class="text-xs text-gray-200 font-thin"><slot /></p>
   </div>
 </a>

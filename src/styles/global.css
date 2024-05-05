@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Merriweather:ital,wght@1,300&Inter:wght@200;300;400;500;600;700;800&family=Montagu+Slab:opsz,wght@16..144,600&family=Poppins:wght@200;300;400;500;600;700;800&family=Ubuntu&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -20,7 +22,7 @@ root {
 * {
   background-color: var(--black);
   color: var(--white);
-  text-wrap:wrap;
+  text-wrap: wrap;
 }
 
 @font-face {
@@ -39,8 +41,7 @@ root {
 
 @font-face {
   font-family: "Persona";
-  src: url("/Portfolio/fonts/Persona5MenuFontPrototype-Regular.ttf")
-    format("truetype");
+  src: url("/Portfolio/fonts/Persona5MenuFontPrototype-Regular.ttf") format("truetype");
 }
 
 @font-face {
@@ -73,20 +74,16 @@ root {
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #2E333A; 
+  background: #2E333A;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #470004;
-    border-radius: 2px ;
-}
-
-a{
-  font-weight:500;
+  background: #470004;
+  border-radius: 2px;
 }
 
 body {
@@ -106,14 +103,17 @@ body {
   background-position:
     0 0,
     50px 50px;
-  background-color: #0b0e17;
+  background-color: black;
 }
+
 main {
-  width: 820px;
-  max-width: calc(100% - 2em);
+  max-width: 820px;
+  width: 100%;
+  /* max-width: calc(100% - 2em); */
   margin: auto;
   padding: 2em 1em;
 }
+
 h1,
 h2,
 h3,
@@ -123,28 +123,36 @@ h6 {
   margin: 0 0 0.5rem 0;
   line-height: 1.2;
 }
+
 h1 {
   font-size: 3.052em;
 }
+
 h2 {
   font-size: 2.441em;
 }
+
 h3 {
   font-size: 1.953em;
 }
+
 h4 {
   font-size: 1.563em;
 }
+
 h5 {
   font-size: 1.25em;
 }
+
 strong,
 b {
   font-weight: 700;
 }
+
 a {
   color: var(--accent);
 }
+
 a:hover {
   color: var(--accent);
 }
@@ -153,40 +161,49 @@ textarea {
   width: 100%;
   font-size: 16px;
 }
+
 input {
   font-size: 16px;
 }
+
 table {
   width: 100%;
 }
+
 code {
   padding: 2px 5px;
   background-color: rgb(var(--gray-light));
   border-radius: 2px;
 }
+
 pre {
   padding: 1.5em;
   border-radius: 8px;
 }
-pre > code {
+
+pre>code {
   all: unset;
 }
+
 blockquote {
   border-left: 4px solid var(--accent);
   padding: 0 0 0 20px;
   margin: 0px;
   font-size: 1.333em;
 }
+
 hr {
   border: none;
   border-top: 1px solid rgb(var(--gray-light));
 }
+
 @media (max-width: 720px) {
   body {
     font-size: 18px;
   }
+
   main {
-    padding: 10px 0;
+    padding: 20px;
   }
 }
 
@@ -202,4 +219,38 @@ hr {
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+@keyframes underline {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.link {
+  position: relative;
+  text-decoration: none;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.link:hover::after {
+  animation: underline 0.3s forwards;
+}
+
+.link:selection::after {
+  animation: underline 0.3s forwards;
 }
