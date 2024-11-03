@@ -2,34 +2,44 @@
 interface Props {
   image: string;
   date: string;
-  label: string;
+  tags: Array<string>;
   title: string;
   link: string;
 }
-const { image, link, date, label, title } = Astro.props;
+const { image, link, date, tags, title } = Astro.props;
+let x = 0;
 ---
 
 <a
   href={link}
   target="_blank"
-  class={`flex gap-2 w-fit sm:h-[160px] h-[100px]`}
+  class={`flex gap-4 w-fit sm:h-[160px] h-[100px]`}
 >
   <img src={image} class={"sm:w-[300px] w-[160px] aspect-auto"} />
   <div
     class="flex flex-col justify-evenly font-space h-full text-wrap overflow-ellipsis"
   >
     <h1 class="sm:text-2xl text-xl font-bold text-wrap">{title}</h1>
-    <div
-      class="font-thin text-gray-400 mx-1 text-base flex items-center sm:gap-4 gap-2"
-    >
-      <label class="border border-purple-700 py-[1px] px-3 rounded-sm"
-        >{date}</label
-      >
+    <div class="font-thin text-gray-400 mx-1 text-sm flex items-center gap-2">
+      <label class="py-[1px]">{date}</label>
       <span class="text-white">•</span>
-
-      <span class="border-[#C22129] border py-[1px] px-3 rounded-sm">
-        {label}</span
-      >
+      <span class="flex gap-2">
+        {
+          tags.map((aloo) => {
+            x++;
+            const border = x % 2 ? "border-[#C22129]" : "border-purple-700";
+            return (
+              <span
+                class={
+                  "border-[#C22129] border rounded-sm px-3 py-[1px] " + border
+                }
+              >
+                {aloo}
+              </span>
+            );
+          })
+        }
+      </span>
     </div>
   </div>
 </a>
