@@ -27,7 +27,7 @@ root {
 
 @font-face {
   font-family: "Atkinson";
-  src: url("/Portfolio/fonts/atkinson-regular.woff") format("woff");
+  src: url("/fonts/atkinson-regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -36,17 +36,17 @@ root {
 
 @font-face {
   font-family: "Expose";
-  src: url("/Portfolio/fonts/expose-regular.otf") format("opentype");
+  src: url("/fonts/expose-regular.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Persona";
-  src: url("/Portfolio/fonts/Persona5MenuFontPrototype-Regular.ttf") format("truetype");
+  src: url("/fonts/Persona5MenuFontPrototype-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Atkinson";
-  src: url("/Portfolio/fonts/atkinson-bold.woff") format("woff");
+  src: url("/fonts/atkinson-bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -54,17 +54,17 @@ root {
 
 @font-face {
   font-family: "KoreanKRSM";
-  src: url("/Portfolio/fonts/atkinson-bold.woff") format("woff");
+  src: url("/fonts/atkinson-bold.woff") format("woff");
 }
 
 @font-face {
   font-family: "Optima";
-  src: url("/Portfolio/fonts/optima-nova-lt-black.otf") format("opentype");
+  src: url("/fonts/optima-nova-lt-black.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Wotfard";
-  src: url("/Portfolio/fonts/wotfard.ttf") format("truetype");
+  src: url("/fonts/wotfard.ttf") format("truetype");
 }
 
 @layer utilities {

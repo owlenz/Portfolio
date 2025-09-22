@@ -2,7 +2,7 @@
 title: "Managing Your Dotfiles With GNU Stow"
 description: "Dotfiles can be a pain when backing them up and/or integrating them into a new system, in this blog post we will learn how to manage them with GNU Stow"
 pubDate: "Mar 03 2024"
-heroImage: "/Portfolio/GNU.png"
+heroImage: "/GNU.png"
 tags: ["Linux","Dotfiles"]
 ---
 
