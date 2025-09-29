@@ -1,78 +1,73 @@
-
-
-a {
-    text-decoration: underline;
-  }
-  h4 {
+h4 {
     color: white;
-  }
+}
 
-  p {
+p {
     font-family: Atkinson, sans-serif;
     margin: 20px 0px;
-  }
-  pre {
+}
+pre {
     width: full;
     margin: 20px 0;
     font-size: 16px;
-  }
-  code {
+}
+code {
     overflow: scroll;
-  }
-  .date {
+}
+.date {
     margin-bottom: 0.5em;
     color: gray;
-  }
-  .last-updated-on {
+}
+.last-updated-on {
     font-style: italic;
-  }
+}
 
-  h1,
-  h2,
-  h3,
-  h4 {
+h1,
+h2,
+h3,
+h4 {
     font-weight: 600;
     font-family: Space Mono, sans-serif
-  }
-    h1,
-  h2,
-  h3,
-  h4,p {
+}
+h1,
+h2,
+h3,
+h4,p {
     font-family: Space Mono, sans-serif
-  }
-  h1 {
+}
+h1 {
     font-size: 2em;
-  }
-    h2 {
+}
+h2 {
     font-size: 1.6em;
-  }
-  h3 {
+}
+h3 {
     font-size: 1.4em;
-  }
-  h4 {
+}
+h4 {
     font-size: 1.2em;
-  }
-  p{
+}
+p{
     font-weight:500
-  }
-  @media (max-width: 700px) {
+}
+@media (max-width: 700px) {
     h1 {
-      font-size:24px;
+        font-size:24px;
     }
     h2{
-      font-size:22px;
+        font-size:22px;
     }
     h3{
-      font-size:20px;
+        font-size:20px;
     }
     h4{
-      font-size:18px
+        font-size:18px
     }
     p {
-      font-size: 14px;
+        font-size: 14px;
     }
-  }
+}
 
-  a {
+a {
     font-weight: 600;
-  }
+}

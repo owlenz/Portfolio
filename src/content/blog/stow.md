@@ -30,20 +30,14 @@ All those tools are great for managing dotfiles and bootstrapping, but as an adv
 
 ## What Is GNU Stow and how to set it up?
 
-GNU Stow is Symlink manager that makes it easy to manage dotfiles across multiple machines. It organizes your configurations into separate packages and creates symlinks to install them in the appropriate locations. After Setting it up, editing either files the actual file or the symlink doesn't result in conflict as editing the symlink changes the file itself with it and vice verca.
+GNU Stow is Symlink manager that makes it easy to manage packages that are scattered across your directory tree in one place. It organizes your configurations into separate packages and creates symlinks to install them in the appropriate locations. After Setting it up, editing either files the actual file or the symlink doesn't result in conflict as editing the symlink changes the file itself with it and vice verca.
 
 
 ### Installation
 
 GNU Stow pretty much exists in every UNIX system's main package manager without adding any additional library just install package called `stow`
 
-#### Debian-based distros
-
-```zsh
-➜ sudo apt-get install stow
-```
-
-#### Arch-based distros
+I use arch, so:
 
 ```zsh
 ➜ sudo pacman -S stow
@@ -57,46 +51,35 @@ if your distro's package manager doesnt offer it or you're using macos. you can 
 ➜ brew install stow
 ```
 
-
-
 ### Setting It up
-
 
 
 To get Started, Create your main dotfiles folder you can create it any where u want but i prefer it to be in the home directory.
 
 ```zsh
-➜ mkdir ~/dotfiles && cd $_ ## creating the dotfiles directory then entring it
+➜ mkdir -p ~/dotfiles/config 
+➜ cd ~/dotfiles
 ```
 
-Now that we have the dotfiles directory, let's copy, for example, our nvim configuration directory. Then, we'll rename it to avoid any conflicts.
+Now let's copy, for example, our nvim configuration directory. Then, we'll rename it to avoid any conflicts.
 
 ```zsh
-➜ cp ~/.config/nvim/ ~/dotfiles/ 
-➜ mv ~/.config/nvim ~/.config/nvim.bak ## Renaming it to avoid conflicts
+➜ cp ~/.config/nvim/ ~/dotfiles/config
+➜ mv ~/.config/nvim ~/.config/nvim.bak
 ```
 
 Stow treats each set of files and directories, which would be installed in a specific directory, for example, nvim, as a package. When you stow a package for a target directory X, Stow creates symlinks in directory X that point to the files and directories within the package.
 
 ```zsh
-➜ mkdir ~/.config/nvim
-➜ stow nvim -v -R -t ~/.config/nvim
-LINK: .neoconf.json => ../dotfiles/nvim/.neoconf.json
-LINK: lazy-lock.json => ../dotfiles/nvim/lazy-lock.json
-LINK: init.lua => ../dotfiles/nvim/init.lua
-LINK: lazyvim.json => ../dotfiles/nvim/lazyvim.json
-LINK: stylua.toml => ../dotfiles/nvim/stylua.toml
-LINK: lua => ../dotfiles/nvim/lua
+➜ stow config -v -R -t ~/.config
 ```
 
-This command tells Stow to first delete any existing symlink of the nvim package using the -R or `--restow` option. Then, it creates a symlink in the target directory ./config/nvim specified by -t or `--target=TARGET_DIR`. The -v flag enables verbose mode, providing detailed logs of the operations performed by Stow.
-Now you can copy your configuration files into any subdirectory of your choice within the dotfiles directory, and then specify the target directory where you want Stow to create symbolic links.
+This command tells Stow to first delete any existing symlink of the config package using the -R or `--restow` option. Then, it creates a symlink in the target directory ~/.config specified by -t or `--target=TARGET_DIR`. The -v flag enables verbose mode, providing detailed logs of the operations performed by Stow.
 
-Deleting a symlink is as simple as adding the -D or `--delete` option, followed by the package name. This option unstows the specified package. After unstowing the package, we need to manually delete the symlink associated with it.
+Deleting a symlink is as simple as adding the -D or `--delete` option, followed by the package name and the target directory. This option unstows the specified package, deleting the symlinks with it.
 
 ```zsh
-➜ stow -D nvim
-➜ rm -rf ~/.config/nvim
+➜ stow -D config -t ~/.config 
 ```
 
 This command will first unstow the package, which is nvim, and then delete the symlinks associated with that package.

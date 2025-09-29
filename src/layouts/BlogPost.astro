@@ -9,12 +9,11 @@ type Props = CollectionEntry<"blog">["data"];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<style is:global></style>
 <Layout title={title} description={description}>
   <div
-    class="text-white xl:mx-40 lg:mx-20 mx-4 text-pretty mt-20 flex justify-between relative"
+    class="text-white xl:mx-40 lg:mx-20 mx-4 text-pretty mt-20 flex justify-center relative"
   >
-    <article class="flex flex-col w-[800px] items-center">
+    <article class="flex flex-col w-[1000px] items-center">
       {heroImage && <img width={350} src={heroImage} alt="GNU Logo" />}
       <div class="prose">
         <div class="title">

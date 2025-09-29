@@ -4,9 +4,16 @@ import ProjectCard from "../../components/ProjectCard.astro";
 ---
 
 <Layout title="Saif's Projects" description="">
-  <main class="font-space" transition:animate="slide">
+  <main class="font-space">
     <h1 class="mb-4 sm:text-3xl text-[#DADADB] text-2xl font-bold">Projects</h1>
     <div class="flex flex-col justify-center gap-4 flex-wrap">
+      <ProjectCard
+        image="/projects/Rordle.png"
+        title="LearnMate"
+        tags={["FullStack", "Education"]}
+        link="https://learnmate.es/"
+        date="August, 2025"
+      />
       <ProjectCard
         image="/projects/Rordle.png"
         title="Rordle"
@@ -20,13 +27,6 @@ import ProjectCard from "../../components/ProjectCard.astro";
         tags={["Frontend", "Discovery"]}
         link="https://what-to-game.vercel.app/"
         date="Jan, 2024"
-      />
-      <ProjectCard
-        image="/projects/DBMS/DBMS.png"
-        title="Database Managment Website"
-        tags={["Fullstack", "CRUD"]}
-        link="/projects/dbms"
-        date="Feb, 2024"
       />
     </div>
   </main>

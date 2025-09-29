@@ -21,8 +21,8 @@ let x = 0;
               {post.data.heroImage && (
                 <img class="h-20 " src={post.data.heroImage} alt={post.slug} />
               )}
-              <a class="inline-block" href={`/blog/${post.slug}/`}>
-                <p class="text-xl mb-1 ">{post.data.title}</p>
+              <div class="inline-block" >
+                <a class="text-xl mb-1 " href={`/blog/${post.slug}/`}>{post.data.title}</a>
                 <p class="font-thin text-gray-400 mx-1 text-sm flex items-center gap-2">
                   <span>
                     <FormattedDate date={post.data.pubDate} />
@@ -46,7 +46,7 @@ let x = 0;
                     })}
                   </span>
                 </p>
-              </a>
+              </div>
             </li>
           ))
         }
