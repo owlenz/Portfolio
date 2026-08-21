@@ -19,7 +19,8 @@ export default defineConfig({
 	vite: {
 		server: {
 			watch: {
-				usePolling: true,
+			  usePolling: true,
+			  interval: 100,
 			},
 		},
 	},

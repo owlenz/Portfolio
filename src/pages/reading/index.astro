@@ -1,0 +1,111 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import BookCard from "../../components/BookCard.astro";
+
+const hardcoverApiKey = import.meta.env.HARDCOVER_API_KEY;
+
+const query = `
+  query GetMyBooks {
+    me {
+      id
+      username
+      user_books(where: { status_id: { _eq: 2 } }, limit: 5) {
+        id
+        user_book_reads {
+          progress_pages
+        }
+        status_id
+        book {
+          id
+          title
+          slug
+          pages
+          image {
+            url
+          }
+          contributions {
+            author {
+              name
+            }
+          }
+        }
+      }
+      lists(where: { name: { _in: ["backlog", "Tech Recommendations"] } }) {
+        name
+        list_books(limit: 10) {
+          book {
+            id
+            title
+            slug
+            pages
+            image {
+              url
+            }
+            contributions {
+              author {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+const response = await fetch("https://api.hardcover.app/v1/graphql", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${hardcoverApiKey}`,
+  },
+  body: JSON.stringify({ query }),
+});
+
+const result = await response.json();
+const userBooks = result.data?.me?.[0]?.user_books || [];
+const allLists = result.data?.me?.[0]?.lists || [];
+
+const backlogBooks = allLists.find((l: any) => l.name === "backlog")?.list_books || [];
+const recBooks = allLists.find((l: any) => l.name.includes("Recommendation"))?.list_books || [];
+---
+
+<Layout title="saif's reading list" description="Saif's personal reading list and book tracking.">
+  <main class="font-space">
+    <h1 class="mb-6 text-2xl font-bold text-[#DADADB] sm:text-3xl">
+      Currently Reading
+    </h1>
+    <div class="grid grid-cols-1 min-[600px]:grid-cols-2 gap-4">
+      {
+        userBooks.map((item: any) => (
+          <BookCard
+            book={item.book}
+            progressPages={item.user_book_reads?.[0]?.progress_pages || 0}
+          />
+        ))
+      }
+    </div>
+
+    <h1 class="mb-6 mt-6 text-2xl font-bold text-[#DADADB] sm:text-3xl">
+      Want To Read
+    </h1>
+    <div class="grid grid-cols-1 min-[600px]:grid-cols-2 gap-4">
+      {
+        backlogBooks.map((item: any) => (
+          <BookCard book={item.book} />
+        ))
+      }
+    </div>
+
+    <h1 class="mb-6 mt-6 text-2xl font-bold text-[#DADADB] sm:text-3xl">
+      Recommendations
+    </h1>
+    <div class="grid grid-cols-1 min-[600px]:grid-cols-2 gap-4">
+      {
+        recBooks.map((item: any) => (
+          <BookCard book={item.book} />
+        ))
+      }
+    </div>
+  </main>
+</Layout>

@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import FormattedDate from "../../components/FormattedDate.astro";
+import BlogCard from "../../components/BlogCard.astro";
 import Layout from "../../layouts/Layout.astro";
 
 const posts = (await getCollection("blog")).sort(
@@ -8,49 +8,27 @@ const posts = (await getCollection("blog")).sort(
 );
 
 let x = 0;
+
 ---
 
 <Layout title="Blogs" description="">
   <main class="text-[#DADADB] font-space">
     <h1 class="mb-4 sm:text-3xl text-2xl font-bold">Blogs</h1>
-    <section>
-      <ul>
-        {
+    <div class="flex flex-col justify-center gap-4 flex-wrap">
+		{
           posts.map((post) => (
-            <li class="flex gap-2 h-fit">
-              {post.data.heroImage && (
-                <img class="h-20 " src={post.data.heroImage} alt={post.slug} />
-              )}
-              <div class="inline-block" >
-                <a class="text-xl mb-1 " href={`/blog/${post.slug}/`}>{post.data.title}</a>
-                <p class="font-thin text-gray-400 mx-1 text-sm flex items-center gap-2">
-                  <span>
-                    <FormattedDate date={post.data.pubDate} />
-                  </span>
-                  <span class="text-white">•</span>
-                  <span class="flex gap-2">
-                    {post.data.tags.map((aloo) => {
-                      x++;
-                      const border =
-                        x % 2 ? "border-[#C22129]" : "border-purple-700";
-                      return (
-                        <span
-                          class={
-                            "border-[#C22129] border rounded-sm px-3 py-[1px] " +
-                            border
-                          }
-                        >
-                          {aloo}
-                        </span>
-                      );
-                    })}
-                  </span>
-                </p>
-              </div>
-            </li>
+          <BlogCard
+            post={post}
+          />
+          <BlogCard
+            post={post}
+          />
+
+          <BlogCard
+            post={post}
+          />
           ))
         }
-      </ul>
-    </section>
+    <div class="flex flex-col justify-center gap-4 flex-wrap">
   </main>
 </Layout>

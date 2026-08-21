@@ -11,10 +11,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 <Layout title={title} description={description}>
   <div
-    class="text-white xl:mx-40 lg:mx-20 mx-4 text-pretty mt-20 flex justify-center relative"
+    class="text-white mx-4 text-pretty mt-20 flex justify-center relative"
   >
     <article class="flex flex-col w-[1000px] items-center">
-      {heroImage && <img width={350} src={heroImage} alt="GNU Logo" />}
       <div class="prose">
         <div class="title">
           <div class="date text-center">
@@ -27,7 +26,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
               )
             }
           </div>
-          <h1>{title}</h1>
+          <h1 class="mb-10">{title}</h1>
           <hr />
         </div>
         <slot />

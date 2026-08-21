@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  book: {
+    title?: string;
+    slug?: string;
+    pages?: number;
+    image?: { url?: string };
+    contributions?: Array<{ author?: { name?: string } }>;
+  };
+  progressPages?: number;
+}
+
+const { book, progressPages } = Astro.props;
+const authorName = book?.contributions?.[0]?.author?.name || "Unknown Author";
+const totalPages = book?.pages || 0;
+const isReading = typeof progressPages === "number";
+
+const progressPercent =
+  isReading && totalPages > 0
+    ? Math.min(Math.round((progressPages / totalPages) * 100), 100)
+    : 0;
+---
+
+<a
+  href={`https://hardcover.app/books/${book?.slug}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="flex items-center gap-4 border border-neutral-800 p-4 bg-neutral-900/50 hover:border-cyan-700 transition-colors"
+>
+  {
+    book?.image?.url && (
+      <Image
+        src={book.image.url}
+        alt={`Cover for ${book.title}`}
+        width={80}
+        height={100}
+        format="webp"
+        quality={90}
+      />
+    )
+  }
+  <div class="flex-1 min-w-0">
+    <h2 class="text-lg font-bold text-white truncate" title={book?.title}>
+      {book?.title}
+    </h2>
+    <p class="text-sm text-neutral-400 mb-2">
+      {authorName}
+    </p>
+
+    {
+      isReading && (
+        <>
+          <div class="flex items-center justify-between text-xs text-neutral-400 mb-1">
+            <span>
+              {progressPages} of {totalPages > 0 ? totalPages : "X"} pages
+            </span>
+            <span class="font-semibold text-[#6D28D9]">{progressPercent}%</span>
+          </div>
+
+          <div class="relative h-1.5 w-full overflow-hidden rounded-full bg-purple-950/40">
+            <div
+              class="h-full rounded-full bg-[#6D28D9] transition-all duration-500 ease-out"
+              style={`width: ${progressPercent}%`}
+            />
+          </div>
+        </>
+      )
+    }
+  </div>
+</a>
