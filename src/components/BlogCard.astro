@@ -1,13 +1,13 @@
 ---
 interface Props {
   post: {
-	slug?: string;
-	data?: {
-	  title?: string;
-	  description?: string;
-	  pubDate?: string;
+	slug: string;
+	data: {
+	  title: string;
+	  description: string;
+	  pubDate: Date;
 	  heroImage?: string,
-	  tags?: Array<string>;
+	  tags: Array<string>;
 	};
   };
 }
@@ -20,9 +20,6 @@ let x = 0;
 <a
   href={`/blog/${post.slug}/`}
   class=" border border-neutral-800 p-4 bg-neutral-900/50 hover:border-cyan-700 transition-colors">
-	<!--  {post.data.heroImage && ( -->
-	<!-- <img class="h-20 " src={post.data.heroImage} alt={post.slug} /> -->
-	<!--  )} -->
   <div
 	class={`flex  gap-4 w-fit sm:h-[90px] h-[100px]`}
   >
