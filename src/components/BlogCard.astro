@@ -1,7 +1,7 @@
 ---
 interface Props {
   post: {
-	slug: string;
+	id: string;
 	data: {
 	  title: string;
 	  description: string;
@@ -18,7 +18,7 @@ let x = 0;
 
 ---
 <a
-  href={`/blog/${post.slug}/`}
+  href={`/blog/${post.id}/`}
   class=" border border-neutral-800 p-4 bg-neutral-900/50 hover:border-cyan-700 transition-colors">
   <div
 	class={`flex  gap-4 w-fit sm:h-[90px] h-[100px]`}
